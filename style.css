@@ -1,0 +1,285 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif Hentaigana", serif;;
+}
+
+/* global variables */
+
+:root{
+    --dk-violet: hsl(268, 75% , 9%);
+    --lt-violet: hsl(268, 47% , 21%); 
+    --lt-violet2: hsl(281, 89% , 86%); 
+    --vb-violet: hsl(285, 91% , 52%);
+    --vb-violet2: hsl(290, 70% , 36%);
+
+    --vb-yellow: hsl(52, 100% , 62%);
+
+    --pl-white: hsl(0, 0% , 100%);
+
+    --vb-cyan: hsl(176, 100% , 44%);
+    --vb-cyan2: hsl(177, 92% , 70%);
+    --db-text: hsl(198, 20% , 13%);
+}
+
+.Container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 1) 7%, rgba(255, 1, 146, 1) 48%, rgba(255, 193, 7, 1) 100%);
+}
+
+.blur-container{
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blurs background behind the div */
+  border-radius: 10px; /* Optional: Rounded corners */
+  padding: 20px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.7);
+}
+
+h1{
+    color: var(--pl-white);
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.display-container{
+    position: relative;
+    background-color: var(--dk-violet);
+    border-radius: 1rem; 
+    /* 1rem (root em) for most browsers the font size of the root element is equals to 16px  */
+    border-bottom: 0.35rem solid var(--lt-violet2);
+    margin: 1rem 0;
+    padding-top: 0.35rem;
+}
+
+.display{
+    width: 100%;
+    background-color: transparent;
+    padding: 1.15em 1rem;
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border: none;
+    
+}
+
+.display::placeholder{
+    position: absolute;
+    top: 50%;
+    left: 1.15rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: var(--vb-yellow);
+    opacity: 0.65;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+}
+
+.display-container button{
+    /* background: transparent; */
+    position: absolute;
+    top: 50%;
+    right: 1.15rem;
+    transform: translateY(-50%);
+}
+.copybtn{
+    background-color: none;
+    border: 3px solid var(--vb-yellow);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    z-index: 11
+
+}
+
+
+.input-container {
+    width: 100%;
+    background-color: var(--dk-violet);
+    border-radius: 1rem;
+    padding: 2rem;
+    border-bottom: 0.35rem solid var(--lt-violet2);
+    
+}
+
+.length-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.length-container p:nth-child(1){
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+.length-container p:nth-child(2){
+    color: var(--vb-yellow);
+    font-size: 1.5rem;
+}
+
+.strength-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.strength-container p{
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+.indicator{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: gray;
+    border: 1px solid white;
+    box-shadow: 0px 0px 12px 1px rgb(255, 255, 255);
+}
+
+.generateButton{
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--vb-violet);
+    text-align: center;
+    border-radius: 0.75rem;
+    border-bottom: 0.35rem solid var(--vb-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.25rem;
+
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 0 1rem;
+}
+
+.check input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--vb-cyan);
+    cursor: pointer;
+    position: relative;
+    /* relative because we want to overlap a tick image for this the nearest ancestore has to be non static or relative */
+    border-radius: 0.35rem;
+}
+
+.check input:checked{
+    background-color: var(--vb-cyan);
+}
+
+/* seudo selector */
+.check input::before {
+    content:'✔';
+    position: absolute;
+    color: var(--db-text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    left:20%;
+    top:-3.5px;
+    /* transform: translateX() translateY(); */
+}
+
+.check label{
+    color: var(--pl-white);
+    font-size: 1.25rem;
+    letter-spacing: 0.75px;
+}
+
+
+.slider{
+    
+    appearance: none;
+    width: 100%;
+    height: 0.75rem;
+    cursor: pointer;
+    background-color: var(--lt-violet);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    outline: none;
+
+   /* Dynamic track fill */
+   background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
+   background-repeat: no-repeat;
+   background-size: 0% 100%; /* Start with 0% */
+   
+
+}
+
+/* JavaScript will update background-size */
+.slider::-webkit-slider-runnable-track {
+    height: 0.75rem;
+    border-radius: 1rem;
+}
+
+/* slider ke pointer or circle  */
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-top: -10px;
+    background-color: var(--vb-yellow);
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in;
+    position: relative;
+    
+}
+
+/* When clicking the thumb, make it semi-transparent */
+.slider:active::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+/* Hover Effect */
+.slider::-webkit-slider-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+    z-index: 10;
+}
+
+/* Focus Effect */
+.slider:focus {
+    outline: 3px solid var(--vb-yellow);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
