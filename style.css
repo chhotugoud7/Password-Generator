@@ -41,6 +41,7 @@
   border-radius: 10px; /* Optional: Rounded corners */
   padding: 20px;
   box-shadow: 10px 10px 20px rgba(0,0,0,0.7);
+  max-width: 600px;
 }
 
 h1{
@@ -270,9 +271,56 @@ h1{
     outline: 3px solid var(--vb-yellow);
 }
 
-
-
-
+@media screen 
+/* and (max-width: 768px)  */
+ {
+    h1{
+        font-size: 20px;
+    }
+    .display-container{
+        margin: 0.5rem 0;
+        padding-top: 0.2rem;
+        border-radius: 8px;
+    }
+    .display{
+        padding: 0.5rem 0.5rem;
+    }
+    .input-container{
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .length-container p:nth-child(1) {
+        font-size: 1.1rem;
+    }
+    .length-container p:nth-child(2) {
+        font-size: 1.1rem;
+    }
+    .slider{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: .50rem;
+    }
+    .check{
+        margin: .75rem 0;
+    
+    }
+    .check label {
+        font-size: 1rem;
+    }
+    .strength-container{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .strength-container p{
+        font-size: 1.1rem;
+    }
+    .generateButton{
+        padding: 0.75rem 0;
+        border-radius: 10px;
+        font-size: 1.1rem;
+    }
+} 
 
 
 
