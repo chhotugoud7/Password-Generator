@@ -143,7 +143,6 @@ generateBtn.addEventListener('click', () => {
     passwordDisplay.value = password;
     updateStrengthIndicator(password);
 });
-
 // Copy password to clipboard
 copyBtn.addEventListener('click', () => {
     if (passwordDisplay.value) {
